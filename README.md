@@ -24,10 +24,18 @@
   * `-f` force deletion if file was was just added or modified
   * `--cached` remove only from staging area
 * `mv <file1> <file2>` move or rename a file, same thing as
+<<<<<<< HEAD
 
       mv README.md README  
       git rm README.md
       git add README
+=======
+  ```
+  mv README.md README  
+  git rm README.md
+  git add README
+  ```
+>>>>>>> 587e8487bf12030a55e0e3324a951c94706e0919
 * `log` display commit history
   * `-p` (patch) differences in each commit
   * `-<n>` show last n commits
