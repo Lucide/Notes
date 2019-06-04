@@ -32,7 +32,7 @@
   * `-p` (patch) differences in each commit
   * `-<n>` show last n commits
   * `-stats` print some statistics
-  * `--pretty="<format>"` format following a preset
+  * `--pretty=<format>` format following a preset
     * `oneline`
     * `short/full/fuller`
     * `format: <pattern>` custom format preset
