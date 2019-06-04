@@ -23,6 +23,7 @@
 * `rm <pattern>` stage a file removal and delete it from the working tree
   * `-f` force deletion if file was was just added or modified
   * `--cached` remove only from staging area
+  * `-r` recursive
 * `mv <file1> <file2>` move or rename a file, same thing as
 
       mv README.md README  
