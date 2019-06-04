@@ -42,22 +42,26 @@
 * `checkout`
   * `--<file>` discard uncommitted changes
   * `<tagname>` set working tree to the tag's version (detached HEAD)
-  * `-b <branch>` in “detached HEAD” state, commit changes to a new branch
-  * `<branch>` switch to branch
-  * `-b <branch>` create and switch to branch
+  * `<branch>` switch to branch, if the branch name you’re trying to checkout doesn’t exist and exactly matches a name on only one remote, it will create a tracking branch
+  * `-b <branch>` create, commit, and switch to branch
+    * `<remote>/<branch>` merge remote branch into branch
+  * `--track <remote>/<branch>` alternative to avoid repeating local branch name
 * `remote` list remotes
   * `-v` show urls
   * `add <shortname> <url>` add a remote repository
   * `show <remote>` show more info
-* `fetch <remote>` download all the new data
+* `fetch`
+  * `<remote>` fetch from remote
+  * `--all` fetch from all remotes
 * `pull` if branch is set up to track a remote branch, it fetches and merges
 * `push <remote>` upload to server
-  * `<branch>` upload branch to server
+  * `<branch>` push branch to server
+  * `--delete <branch>` delete a remote branch
   * `<tagname>` push tag to server
   * `--tags` push all tags (annotated and lightweight)
   * `-d <tagname>` delete tag from server
 * `tag` list tags
-  * `-l "<pattern>"` (list) filter by pattern
+  * `-l <pattern>` (list) filter by pattern
     * `<tagname>` add a lightweight tag
     * `-a <tagname>` add an annotated tag
       * `-m` specify message inline
@@ -69,5 +73,7 @@
   * `<branch>` create a new branch
   * `-d <branch>` delete a branch
   * `-D <branch>` force delete a branch
+  * `-u <remote>/<branch>` (set-upstream-to) set (or change) an already existing local branch to to track a remote branch
+  * `-vv` list your local branches with more information, including what each branch is tracking and if your local branch is ahead, behind or both
 * `merge <branch>` merge branch to current branch
 * `mergetool` open a visual merge tool
