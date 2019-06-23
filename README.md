@@ -11,7 +11,11 @@
 * `clone <path>` clone a repository
 * `status` display repository status
   * `-s` (short) left column: staging area, right column, working tree
-* `add <pattern>` start with `/` to avoid recursivity, end with `/` to specify a directory, negate with `!`, `*` 0 or more chars, `[abc]` any char inside brackets, `[0-9]` any char between, `/**/` nested directories
+* `add`
+  * `-A` stages all changes, same things as `git add .; git add -u`
+  * `.` stages new files and modifications, without deletions
+  * `-u` stages modifications and deletions, without new files
+  * `<pattern>` start with `/` to avoid recursivity, end with `/` to specify a directory, negate with `!`, `*` 0 or more chars, `[abc]` any char inside brackets, `[0-9]` any char between, `/**/` nested directories
 * `reset HEAD <file>` unstage `file`
 * `diff` compare what has what has changed between working tree and staging area
   * `--cached` compare what has what has changed between staging area and last commit
