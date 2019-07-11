@@ -56,14 +56,15 @@
 * `remote` list remotes
   * `-v` show urls
   * `add <shortname> <url>` add a remote repository
+  * `rm <remote>` remove a remote URL from your repository
   * `show <remote>` show more info
 * `fetch`
   * `<remote>` fetch from remote
   * `--all` fetch from all remotes
 * `pull` if branch is set up to track a remote branch, it fetches and merges
 * `push` upload to tracked remote
-  * `<remote>` upload to `remote`
-  * `<branch>` push `branch` to remote
+  * `<remote>` upload to `remote`, it can be omitted if referring to the tracked remote
+    * `<branch>` push `branch` to remote
     * `--delete <branch>` delete remote/`branch`
     * `<tag>` push `tag` to remote
     * `--tags` push all tags (annotated and lightweight)
