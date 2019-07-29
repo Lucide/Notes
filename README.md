@@ -37,7 +37,7 @@
 * `log` display commit history
   * `-p` (patch) differences in each commit
   * `-<n>` show last `n` commits
-  * `-stats` print some statistics
+  * `--stat` print some statistics
   * `--oneline`
   * `--short/full/fuller`
   * `--pretty=<format>` format following a `format` pattern
