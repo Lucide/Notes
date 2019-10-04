@@ -17,7 +17,10 @@
   * `-u` stages modifications and deletions, without new files
   * `<pattern>` start with `/` to avoid recursivity, end with `/` to specify a directory, negate with `!`, `*` 0 or more chars, `[abc]` any char inside brackets, `[0-9]` any char between, `/**/` nested directories
 * `reset` unstage all
-  * `HEAD <file>` unstage `file`
+  * `HEAD\-- <file>` unstage `file`
+  * `--soft <commit>` reset HEAD to `commit`, index and the working directory will not be altered (changed files are marked "Changes to be committed")
+  * `--mixed <commit>` reset the index to `commit` but not the working tree (changed files are preserved but not marked for commit) this is the default action
+  * `--hard <commit>` reset the index and working tree (any changes to tracked files in the working tree since `commit` are discarded)
 * `diff` compare what has what has changed between working tree and staging area
   * `--cached` compare what has what has changed between staging area and last commit
 * `commit`
@@ -27,7 +30,7 @@
   * `--amend` replace previous commit
 * `rm <pattern>` stage a file removal and delete it from the working tree
   * `-f` force deletion if file was was just added or modified
-  * `--cached` remove only from staging area
+  * `--cached` stage removal, leave on disk
   * `-r` recursive
 * `mv <path1> <path2>` move or rename a file, same thing as
 
@@ -39,13 +42,14 @@
   * `-<n>` show last `n` commits
   * `--stat` print some statistics
   * `--oneline`
-  * `--short/full/fuller`
+  * `--short\full\fuller`
   * `--pretty=<format>` format following a `format` pattern
     * `oneline`
-    * `short/full/fuller`
+    * `short\full\fuller`
     * `format: <pattern>` custom format `pattern`
   * `--graph` ascii graph
-  * `--decorate` show you where the branch pointers are pointing.
+  * `--decorate` show you where the branch pointers are pointing
+* `reflog show` show the log of HEAD, it covers all recent actions, and in addition the HEAD reflog records branch switching (it's an alias for `git log -g --abbrev-commit --pretty=oneline`) 
 * `show` display and filter things
 * `checkout`
   * `--<file>` replace `file` with the most recently-committed version
@@ -80,7 +84,7 @@
   * `-d <tag>` delete `tag`
 * `branch` lists branches
   * `-v` see the last commit on each branch
-  * `--merged/no-merged` filter branches merged or not to the current branch
+  * `--merged\no-merged` filter branches merged or not to the current branch
   * `<branchname>` create a new branch
   * `-d <branch>` delete `branch`
   * `-D <branch>` force delete `branch`
@@ -92,3 +96,4 @@
   * `<branch>` rebase the first current branch commit after the branching point on top of the latest commit in `branch` (change its parent)
   * `--onto <newparent> <oldparent>` rebase the current branch commit whose parent is `oldparent` on top of `newparent` (change the parent)
     * `<until>` rebase the range of commits whose parent is oldparent up to `until` on top of `newparent`
+* `git-gc` cleanup unnecessary files and optimize the local repository
