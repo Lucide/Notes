@@ -96,4 +96,4 @@
   * `<branch>` rebase the first current branch commit after the branching point on top of the latest commit in `branch` (change its parent)
   * `--onto <newparent> <oldparent>` rebase the current branch commit whose parent is `oldparent` on top of `newparent` (change the parent)
     * `<until>` rebase the range of commits whose parent is oldparent up to `until` on top of `newparent`
-* `git-gc` cleanup unnecessary files and optimize the local repository
+* `gc` cleanup unnecessary files and optimize the local repository
