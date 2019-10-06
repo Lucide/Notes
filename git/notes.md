@@ -77,10 +77,10 @@
     * `-d <tag>` delete `tag` from server
 * `tag` list tags
   * `-l <pattern>` (list) filtering by `pattern`
-    * `<tagname>` add a lightweight tag
-    * `-a <tagname>` add an annotated tag
-      * `-m` specify message inline
-    * `<commit checksum>` if adding a tag, it adds it to specified commit
+  * `<tagname>` add a lightweight tag
+  * `-a <tagname>` add an annotated tag
+    * `-m` specify message inline
+  * `<commit checksum>` if adding a tag, it adds it to specified commit
   * `-d <tag>` delete `tag`
 * `branch` lists branches
   * `-v` see the last commit on each branch
