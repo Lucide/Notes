@@ -21,6 +21,17 @@
   * `--soft <commit>` reset HEAD to `commit`, index and the working directory will not be altered (changed files are marked "Changes to be committed")
   * `--mixed <commit>` reset the index to `commit` but not the working tree (changed files are preserved but not marked for commit) this is the default action
   * `--hard <commit>` reset the index and working tree (any changes to tracked files in the working tree since `commit` are discarded)
+* `stash` push a new stash onto the stash stack, same as `git stash push`
+  * `list` view the stash stack
+  * `show` show the changes recorded in the latest stash as a diff between the stashed contents and the commit back when the stash entry was first created
+    * `<stash>` show the changes recorded in `stash` as a diff between the stashed contents and the commit back when the stash entry was first created
+    * `-p` display in patch form
+  * `pop` drop the latest stash from the stash stack and apply it on top of the working tree
+  * `apply` apply the latest stash on top of the working tree
+    * `<stash>` apply `stash` on top of the working tree
+    * `--index` try to reinstate not only the working tree's changes, but also the index's ones
+  * `drop` remove the latest stash from the stash stack
+    * `<stash>` remove `stash` from the stash stack
 * `diff` compare what has what has changed between working tree and staging area
   * `--cached` compare what has what has changed between staging area and last commit
 * `commit`
@@ -54,7 +65,7 @@
 * `checkout`
   * `--<file>` replace `file` with the most recently-committed version
   * `<tagname>` set working tree to commit pointed by `tagname` (detached HEAD)
-  * `<branch>` switch to `branch`, if the branch name you’re trying to checkout doesn’t exist and exactly matches a name on only one remote, it will create a tracking branch
+  * `<branch>` switch to `branch`, if the branch name you're trying to checkout doesn't exist and exactly matches a name on only one remote, it will create a tracking branch
   * `-b <branch>` create, switch, and commit to `branch`
     * `<remote>/<branch>` merge `remote`/`branch` into branch
   * `--track <remote>/<branch>` alternative to avoid repeating local branch name when adding a tracking branch
