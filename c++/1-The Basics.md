@@ -1,4 +1,4 @@
-# C++ notes
+# _C++ notes_: 1 - The Basics
 ##### notes on "A Tour of C++" by Bjarne Stroustrup
 
 ## 1.2.1 Hello, World!
@@ -19,28 +19,26 @@ int main(){
 ```
 
 `std::cout << "Hello, World!\n"`\
-The operator `<<` ("put to") writes its second argument onto its first. In this
-case, the string literal `"Hello, World!\n"` is written onto the standard output stream `std::cout`.\
+The operator `<<` ("put to") writes its second argument onto its first. In this case, the string literal `"Hello, World!\n"` is written onto the standard output stream `std::cout`.\
 The `std::` specifies that the name `cout` is to be found in the standard-library namespace. `using namespace std` tells the compiler to take everything that's in the `std` namespace and dump it in the global namespace.
 
 ## 1.3 Functions
 
-The semantics of argument passing are identical to the semantics of initialization. That
-is, argument types are checked and implicit argument type conversion takes place when necessary. For example:
+The semantics of argument passing are identical to the semantics of initialization. That is, argument types are checked and implicit argument type conversion takes place when necessary:
 ```cpp
 double s2 = sqrt(2);       // call sqrt() with the argument double{2}
 double s3 = sqrt("three"); // error : sqr t() requires an argument of type double
 ```
-A function declaration may contain argument names. This can be a help to the reader of a program, but unless the declaration is also a function definition, the compiler simply ignores such names. For example:
+A function declaration may contain argument names. This can be a help to the reader of a program, but unless the declaration is also a function definition, the compiler simply ignores such names:
 ```cpp
 double sqrt(double d); // return the square root of d
 double square(double); // return the square of the argument
 ```
-The type of a function consists of its return type and the sequence of its argument types. For example:
+The type of a function consists of its return type and the sequence of its argument types:
 ```cpp
 double get(const vector<double>& vec, int index); // type: double(const vector<double>&,int)
 ```
-A function can be a member of a class. For such a member function, the name of its class is also part of the function type. For example:
+A function can be a member of a class. For such a member function, the name of its class is also part of the function type:
 ```cpp
 char& String::operator[](int index);
 ```
@@ -62,16 +60,14 @@ The arithmetic operators can be used for appropriate combinations of the fundame
 * `−x` unary minus
 * ...
 
-Bitwise logical operator yields a result of the operand type for which the operation has been performed on each bit. The logical operators `&&` and `||` simply return `true` or `false` depending on the
-values of their operands.
+Bitwise logical operator yields a result of the operand type for which the operation has been performed on each bit. The logical operators `&&` and `||` simply return `true` or `false` depending on the values of their operands.
 * `xˆy` bitwise exclusive or
 * `˜x` bitwise complement
 * ...
 
-In assignments and in arithmetic operations, C++ performs all meaningful conversions between
-the basic types so that they can be mixed freely:
+In assignments and in arithmetic operations, C++ performs all meaningful conversions between the basic types so that they can be mixed freely:
 ```cpp
-void some_function(){ // function that doesn’t return a value
+void some_function(){ // function that doesn't return a value
     double d = 2.2;   // initialize floating-point number
     int     i = 7;    // initialize integer
     d =d+i;           //assign sum to d
@@ -101,7 +97,7 @@ _Narrowing conversions_ (conversions that lose information), such as `double` to
 
 A constant cannot be left uninitialized, and a variable shouldn't be too. User defined types (such as `string`, `vector`, `Matrix`, `Motor_controller`, ...) can be defined to be implicitly initialized.
 
-When defining a variable, you don’t need to state its type explicitly when it can be deduced from the initializer:
+When defining a variable, you don't need to state its type explicitly when it can be deduced from the initializer:
 ```cpp
 auto b = true;    // a bool
 auto ch = 'x';    // a char
@@ -111,11 +107,10 @@ auto z = sqrt(y); // z has the type of whatever sqr t(y) retur ns
 auto bb {true};   // bb is a bool
 ```
 With `auto`, we tend to use the `=` because there is no potentially troublesome type conversion involved, but you can also use `{}` initialization for better consistency.\
-We use `auto` where we don’t have a specific reason to mention the type explicitly. As when:
+We use `auto` where we don't have a specific reason to mention the type explicitly. As when:
 * The definition is in a large scope where we want to make the type clearly
 visible to readers of our code.
-* We want to be explicit about a variable’s range or precision (e.g., `double`
-rather than `float`).
+* We want to be explicit about a variable's range or precision (e.g., `double` rather than `float`).
 
 Using `auto`, we avoid redundancy and writing long type names. This is especially important in generic programming where the exact type of an object can be hard for the programmer to know.
 
@@ -136,13 +131,9 @@ An object must be constructed (initialized) before it is used and will be destro
 
 C++ supports two notions of immutability:
 * `const`: meaning roughly "I promise not to change this value". This is used primarily to specify interfaces so that data can be passed to functions using pointers and references without fear of it being modified. The compiler enforces the promise made by `const`. The value of a `const` can be calculated at run time.
-* `constexpr`: meaning roughly "to be evaluated at compile time". This is used primarily to
-specify constants, to allow placement of data in read-only memory (where it is unlikely to
-be corrupted), and for performance. The value of a `constexpr` must be calculated by the
-compiler.
+* `constexpr`: meaning roughly "to be evaluated at compile time". This is used primarily to specify constants, to allow placement of data in read-only memory (where it is unlikely to be corrupted), and for performance. The value of a `constexpr` must be calculated by the compiler.
 
-For a function to be usable in a constant expression, that is, in an expression that will be evaluated
-by the compiler, it must be defined `constexpr`. For example:
+For a function to be usable in a constant expression, that is, in an expression that will be evaluated by the compiler, it must be defined `constexpr`:
 ```cpp
 constexpr double square(double x) {
     return x∗x;
@@ -175,7 +166,7 @@ The size of an array must be a constant expression.
 C++ offers a simpler `for`-statement, called a range-`for`-statement, for loops that traverse a sequence in the simplest way:
 ```cpp
 void print(){
-    int v[] = {0,1,2,3,4,5,6,7,8,9}; // we don’t have to specify an array bound when we initialize it with a list
+    int v[] = {0,1,2,3,4,5,6,7,8,9}; // we don't have to specify an array bound when we initialize it with a list
 
     for (auto x : v) // for each x in v
         cout << x << '\n';
@@ -185,7 +176,7 @@ void print(){
 }
 ```
 The range-`for`-statement can be used for any sequence of elements.\
-If we didn’t want to copy the values from `v` into the variable `x`, but rather just have `x` refer to an element, we could write:
+If we didn't want to copy the values from `v` into the variable `x`, but rather just have `x` refer to an element, we could write:
 ```cpp
 void increment(){
     int v[] = {0,1,2,3,4,5,6,7,8,9};
@@ -195,23 +186,21 @@ void increment(){
     // ...
 }
 ```
-In a declaration, the unary suffix `&` means "reference to". A reference is similar to a pointer, except that you don’t need to use a prefix `∗` to access the value referred to by the reference. Also, a reference cannot be made to refer to a different object after its initialization.
+In a declaration, the unary suffix `&` means "reference to". A reference is similar to a pointer, except that you don't need to use a prefix `∗` to access the value referred to by the reference. Also, a reference cannot be made to refer to a different object after its initialization.
 
 References are particularly useful for specifying function arguments. For example:
 ```cpp
 void sort(vector<double>& v); // sort v (v is a vector of doubles)
 ```
-By using a reference, we ensure that for a call `sort(my_vec)`, we do not copy `my_vec` and that it
-really is `my_vec` that is sorted and not a copy of it.
-When we don’t want to modify an argument but still don’t want the cost of copying, we use a
-`const` reference. For example:
+By using a reference, we ensure that for a call `sort(my_vec)`, we do not copy `my_vec` and that it really is `my_vec` that is sorted and not a copy of it.
+When we don't want to modify an argument but still don't want the cost of copying, we use a `const` reference:
 ```cpp
 double sum(const vector<double>&);
 ```
 
 When used in declarations, operators (such as `&`, `∗`, and `[ ]`) are called _declarator operators_.
 
-A declaration can appear anywhere a statement can. Like a `for`-statement, an `if`-statement can introduce a variable and test it. For example:
+A declaration can appear anywhere a statement can. Like a `for`-statement, an `if`-statement can introduce a variable and test it:
 ```cpp
 void do_something(vector<int>& v){
     if (auto n = v.siz e(); n!=0) {
@@ -220,7 +209,7 @@ void do_something(vector<int>& v){
     // ...
 }
 ```
-Here, the integer `n` is defined for use within the `if`-statement , initialized with `v.size()`, and immediately tested by the `n!=0` condition after the semicolon. You can also leave out the explicit mention of the condition, to test a variable against `0` (or the `nullptr`). For example:
+The integer `n` is defined for use within the `if`-statement , initialized with `v.size()`, and immediately tested by the `n!=0` condition after the semicolon. You can also leave out the explicit mention of the condition, to test a variable against `0` (or the `nullptr`):
 ```cpp
 if (auto n = v.siz e()) {
     // ... we get here if n!=0 ...
@@ -229,10 +218,9 @@ if (auto n = v.siz e()) {
 
 ### Pointers
 In older code, `0` or `NULL` is typically used instead of `nullptr`. However, using `nullptr` eliminates potential confusion between integers (such as `0` or `NULL`) and pointers (such as `nullptr`).\
-There is no "null reference". A reference must refer to a valid object (and implementations assume that it does). There are obscure and clever ways to violate that rule; don’t do that.
+There is no "null reference". A reference must refer to a valid object (and implementations assume that it does). There are obscure and clever ways to violate that rule; don't do that.
 
 ### Initialization
 Initialization differs from assignment. In general, for an assignment to work correctly, the assigned-to object must have a value. On the other hand, the task of initialization is to make an uninitialized piece of memory into a valid object.\
-The distinction between initialization and assignment is also crucial to many user-defined types,
-such as `string` and `vector`, where an assigned-to object owns a resource that needs to eventually be released.
+The distinction between initialization and assignment is also crucial to many user-defined types, such as `string` and `vector`, where an assigned-to object owns a resource that needs to eventually be released.
 
