@@ -54,7 +54,7 @@ There is no fundamental difference between a `struct` and a `class`; a `struct` 
 A `union` is a `struct` in which all members are allocated at the same address so that the `union` occupies only as much space as its largest member. Naturally, a `union` can hold a value for only one member at a time.
 ```cpp
 union Value{
-    Node∗ p;
+    Node ∗p;
     int i;
 };
 

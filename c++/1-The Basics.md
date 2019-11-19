@@ -10,9 +10,11 @@ using namespace std; // make names from std visible without std::
 double square(double x){ // square a double precision floating-point number
     return x∗x;
 }
+
 void print_square(double x){
     cout << "the square of " << x << " is " << square(x) << "\n";
 }
+
 int main(){
     print_square(1.234); // pr int: the square of 1.234 is 1.52276
 }
@@ -69,9 +71,9 @@ In assignments and in arithmetic operations, C++ performs all meaningful convers
 ```cpp
 void some_function(){ // function that doesn't return a value
     double d = 2.2;   // initialize floating-point number
-    int     i = 7;    // initialize integer
-    d =d+i;           //assign sum to d
-    i = d∗i;          //assign product to i; beware: truncating the double d*i to an int
+    int i = 7;        // initialize integer
+    d = d+i;          // assign sum to d
+    i = d∗i;          // assign product to i; beware: truncating the double d*i to an int
 }
 ```
 The conversions used in expressions are called the [_usual arithmetic conversions_](https://docs.microsoft.com/en-us/cpp/cpp/standard-conversions) and aim to ensure that expressions are computed at the highest precision of its operands. For example, an addition of a `double` and an `int` is calculated using double-precision floating-point arithmetic.\
@@ -141,7 +143,7 @@ constexpr double square(double x) {
 
 constexpr double max1 = 1.4∗square(17);  // OK 1.4*square(17) is a constant expression
 constexpr double max2 = 1.4∗square(var); // error : var is not a constant expression
-const double max3 = 1.4∗square(var);     //OK, may be evaluated at run time
+const double max3 = 1.4∗square(var);     // OK, may be evaluated at run time
 ```
 A `constexpr` function can be used for non-constant arguments, but when that is done the result is not a constant expression.\
 To be `constexpr`, a function must be rather simple and cannot have side effects and can only use information passed to it as arguments. In particular, it cannot modify non-local variables, but it can have loops and use its own local variables. For example:
