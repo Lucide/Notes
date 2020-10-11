@@ -66,7 +66,7 @@
   * `--<file>` replace `file` with the most recently-committed version
   * `<tagname>` set working tree to commit pointed by `tagname` (detached HEAD)
   * `<branch>` switch to `branch`, if the branch name you're trying to checkout doesn't exist and exactly matches a name on only one remote, it will create a tracking branch
-  * `-b <branch>` create, switch, and commit to `branch`
+  * `-b <branch>` create and switch to `branch`
     * `<remote>/<branch>` merge `remote`/`branch` into branch
   * `--track <remote>/<branch>` alternative to avoid repeating local branch name when adding a tracking branch
 * `remote` list remotes
