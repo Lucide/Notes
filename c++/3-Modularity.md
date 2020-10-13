@@ -1,6 +1,6 @@
-# _C++ notes_: 3 - Modularity
-
 ##### notes on "A Tour of C++" by Bjarne Stroustrup
+
+# _C++ notes_: 3 - Modularity
 
 ## 3.1 Introduction
 

@@ -1,6 +1,6 @@
-# _C++ notes_: 2 - User-Defined Types
-
 ##### notes on "A Tour of C++" by Bjarne Stroustrup
+
+# _C++ notes_: 2 - User-Defined Types
 
 ## 2.1 Introduction
 

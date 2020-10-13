@@ -1,6 +1,6 @@
-# _C++ notes_: 1 - The Basics
-
 ##### notes on "A Tour of C++" by Bjarne Stroustrup
+
+# _C++ notes_: 1 - The Basics
 
 ## 1.2.1 Hello, World!
 
